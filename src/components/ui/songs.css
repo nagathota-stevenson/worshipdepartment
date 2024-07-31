@@ -1,0 +1,121 @@
+.songs-list {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2f2f2f;
+    transition: height 0.5s ease-in-out;
+  }
+  
+  .song-item {
+    font-family: "Nohemi Regular";
+    background-color: #2f2f2f; /* Adjust as needed */
+    width: 100%;
+    max-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #b6b6b6;
+    display: flex;
+    transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  .song-item:first-child {
+    border-top: 1px solid #b6b6b6;
+  }
+  
+  .song-title {
+    padding-left: 1.5em;
+    
+    font-size: 40px; /* Adjust as needed */
+    color: #f6f6f6; /* Adjust as needed */
+  }
+  
+  .song-artist {
+    text-align: left;
+    flex: 0 0 25%;
+    font-family: 'Nohemi Light';
+    padding-right: 30px;
+    font-size: 18px; /* Adjust as needed */
+    color: #f6f6f6; /* Adjust as needed */
+  }
+  
+  .song-item:hover {
+    background-color: #f15f3b; /* Background color on hover */
+    color: #2f2f2f; /* Text color on hover */
+  }
+  
+  .song-item:hover .song-title,
+  .song-item:hover .song-artist {
+    color: #2f2f2f; 
+  }
+
+  .show-more-button {
+    font-family: "Nohemi Regular";
+    background-color: #f0f0f0; /* Initial background color */
+    padding: 10px 20px;
+    /* margin: 20px; */
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #2f2f2f; /* Initial text color */
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+  }
+  
+  /* Hover effects for the button */
+  .show-more-button:hover {
+    background-color: #f15f3b; /* Background color on hover */
+    color: #f6f6f6; /* Text color on hover */
+    transform: scale(1.02); /* Slightly scale up the button */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    background-color: #2f2f2f; /* Background color behind the button */
+    padding: 20px;
+    width: 100%;
+  }
+
+/* Mobile styles */
+@media (max-width: 767px) {
+
+    .songs-list {
+      padding-top: 20px;
+      background-color: #2f2f2f;
+    }
+  
+    .song-item {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 18px; /* Adjusted for smaller screens */
+      flex-direction: row; /* Ensure horizontal layout */
+      align-items: center;
+      justify-content: space-between; /* Space between title and artist */
+      border-bottom: 1px solid #b6b6b6;
+    }
+  
+    .song-title {
+      padding-left: 15px; /* Adjusted for mobile */
+      font-size: 22px; /* Adjusted for smaller screens */
+      flex: 1; /* Allow title to take available space */
+    }
+  
+    .song-artist {
+      padding-right: 15px; /* Adjusted for mobile */
+      font-size: 10px; /* Adjusted for smaller screens */
+      text-align: right; /* Ensure right alignment */
+    }
+  
+    .show-more-button {
+      font-size: 10px; /* Adjusted for smaller screens */
+      padding: 8px 16px; /* Adjusted padding */
+    }
+  
+    .button-container {
+      padding: 20px; /* Adjusted padding for smaller screens */
+    }
+  }
+  

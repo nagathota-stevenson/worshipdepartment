@@ -1,0 +1,94 @@
+.videos-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items at the top */
+    height: auto; /* Adjust height as needed */
+    width: 100%;
+    background-color: #2f2f2f;
+    padding: 20px; /* Add padding around the container */
+}
+
+.iframe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100vw;
+    margin: 0;
+    background-color: #2f2f2f;
+}
+
+.iframe-videos {
+    border-radius: 30px;
+    width: 80vw;
+    height: 70vh;
+    border: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.thumbnails-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next row */
+    justify-content: center; /* Center thumbnails horizontally */
+    gap: 30px; /* Space between thumbnails */
+    padding: 0; /* Adjust padding if necessary */
+}
+
+.thumbnail {
+    border-radius: 20px;
+    width: 320px; /* Adjust width as needed */
+    height: 180px; /* Adjust height as needed */
+    cursor: pointer;
+    transition: transform 0.4s;
+    background-color: #2f2f2f;
+    object-fit: cover; /* Ensure the image fits the container */
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.video-title {
+    font-family: "Nohemi Light";
+    font-size: 20px; /* Adjust as needed */
+    color: #f6f6f6; /* Adjust color as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: transform 0.4s;
+    width: 100%; /* Adjust width as needed */
+    max-width: 320px; /* Adjust width to fit your layout */
+    margin-top: 10px; /* Adjust spacing as needed */
+}
+
+.iframe-mobile {
+    border-radius: 30px;
+    width: 100%;
+    border: none;
+    padding: 20px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .videos-container {
+        flex-direction: column;
+        align-items: center; /* Center items horizontally on mobile */
+    }
+
+    .thumbnails-container {
+        
+        gap: 20px; /* Adjust gap for mobile */
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .thumbnail {
+        width: 45vw; /* Adjust width for mobile */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .video-title {
+        font-size: 16px; /* Adjust font size for mobile */
+        max-width: 45vw; /* Adjust max width for mobile */
+    }
+}

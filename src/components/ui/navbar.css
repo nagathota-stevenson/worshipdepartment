@@ -1,0 +1,120 @@
+/* Basic Navbar Styles */
+.navbar {
+    /* position: fixed; */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    background-color: #2f2f2f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+    
+    margin-right: 10px;
+    font-family: 'Nohemi Regular';
+  }
+  
+  .nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+    margin: 0;
+    
+    padding: 0;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #f6f6f6;
+    margin: 4px 0;
+    border-radius: 10px;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .navbar{
+      position: fixed;
+    }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 47, 47, 0.99); /* Semi-transparent background */
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(-100%);
+    }
+  
+    .nav-links.open {
+      display: flex;
+      opacity: 1;
+      font-size: 100px;
+      pointer-events: auto;
+      transform: translateY(0); 
+      
+    }
+  
+    .nav-links ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      text-align: left;
+      padding: 0;
+      
+      margin: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+  
+    .nav-links ul li {
+      /* margin-bottom: 5px;  */
+      font-size: 50px;
+      
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .exit-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+  
+  /* Hide exit icon on larger screens */
+  @media (min-width: 769px) {
+    .exit-icon {
+      display: none;
+    }
+  }
+  

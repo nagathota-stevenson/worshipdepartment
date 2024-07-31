@@ -1,0 +1,400 @@
+.lyrics-display-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.lyrics-content {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 30px;
+}
+
+.views-likes-container {
+  font-size: 20px;
+  display: flex;
+  font-family: 'Nohemi Light';
+  gap: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+
+}
+
+.views-container {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+
+.likes-container {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+
+.views-likes-container img {
+  width: 30px;
+  height: 30px;
+
+  
+}
+
+.lyrics-display-page .show-more-button-lyrics {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: #2f2f2f;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .lyrics-content {
+    font-family: 'Nohemi Regular';
+    flex-direction: row;
+  }
+}
+
+.lyrics {
+
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 50px;
+}
+
+.lyrics-display-right-content {
+  align-items: center;
+
+}
+
+.related-songs-heading {
+  padding-top: 0.5em;
+  font-size: 40px;
+}
+
+.related-songs {
+  border-bottom: 1.5px solid #c8c8c8;
+  font-family: 'Nohemi Regular';
+  font-size: 20px;
+  padding: 10px 0px;
+  width: 90%;
+  /* transition: color 0.5s ease-in-out; */
+}
+
+.related-songs :hover {
+  color: #f15f3b;
+  transition: color 0.2s ease-in-out;
+
+}
+
+.song-title-lyrics-display {
+  font-size: 60px;
+  color: #2f2f2f;
+  font-family: 'Nohemi Regular';
+}
+
+.loading-lyrics-display-page {
+  font-family: 'Nohemi Regular';
+  font-size: 70px;
+
+}
+
+.song-artist-lyrics-display {
+  font-size: 20px;
+  color: #2f2f2f;
+  margin-bottom: 20px;
+  font-family: 'Nohemi Light';
+}
+
+.divider-lyrics-page {
+  height: 2px;
+  width: 90%;
+  background-color: #2f2f2f;
+  margin-top: 70px;
+  border: none;
+
+}
+
+.song-lyrics {
+  font-family: 'Nohemi Regular';
+  font-size: 50px;
+  line-height: 3;
+  letter-spacing: 1px;
+  color: #2f2f2f;
+}
+
+.song-chords {
+  font-family: "Nohemi Regular";
+  font-size: 40px;
+  color: #f15f3b;
+  margin-bottom: -35px;
+  /* margin-left: -10px; */
+}
+
+.youtube-video-lyrics-page {
+  flex-shrink: 0;
+  /* padding: 20px; */
+  width: 100%;
+  margin-right: 40px;
+  max-width: 700px;
+  height: 315px;
+}
+
+.youtube-video-lyrics-page iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+@media (min-width: 768px) {
+  .youtube-video-lyrics-page {
+    width: 560px;
+  }
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.toggle-button {
+  font-family: 'Nohemi Regular';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 50px;
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-option {
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  color: #2f2f2f;
+  z-index: 1;
+}
+
+.toggle-button::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #f15f3b;
+  transition: transform 0.4s ease;
+}
+
+.toggle-button.telugu::before {
+  transform: translateX(0%);
+}
+
+.toggle-button.english::before {
+  transform: translateX(100%);
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Anek Telugu', sans-serif;
+}
+
+.skeleton-title,
+.skeleton-artist,
+.skeleton-toggle,
+.skeleton-lyrics,
+.skeleton-video {
+  background: #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 50px;
+}
+
+.skeleton-artist {
+  width: 50%;
+  height: 20px;
+}
+
+.skeleton-toggle {
+  width: 300px;
+  height: 50px;
+}
+
+.skeleton-lyrics {
+  width: 100%;
+  height: 200px;
+}
+
+.skeleton-video {
+  width: 100%;
+  height: 315px;
+}
+
+.skeleton-loader::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ddd 25%, #f5f5f5 50%, #ddd 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+.font-size-control {
+  font-family: 'Nohemi Regular';
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  color: #2f2f2f;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.font-size-control span {
+
+  margin: 10px;
+  font-size: 20px;
+}
+
+.font-size-button {
+  font-size: 20px;
+  /* background-color: #f15f3b; */
+  border: none;
+  border-radius: 200px;
+  color: #2f2f2f;
+  width: 40px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.font-size-button:hover {
+  border-radius: 200px;
+  color: #f15f3b;
+}
+
+
+.transpose-control {
+  font-family: 'Nohemi Regular';
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  color: #2f2f2f;
+  padding: 10px;
+  width: 250px;
+  height: 50px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+
+.transpose-control span {
+  margin: 10px;
+  font-size: 20px;
+
+
+
+}
+
+.transpose-steps {
+  color: #a5a5a5;
+  position: relative;
+
+
+}
+
+.transpose-button {
+  font-size: 20px;
+  border: none;
+  /* border-radius: 200px; */
+  color: #2f2f2f;
+  width: 40px;
+
+  margin: 0 0px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.transpose-button:hover {
+  color: #f15f3b;
+}
+
+
+.song-artist-lyrics-display .tab-space::before {
+  content: "\00a0\00a0\00a0\00a0\00a0";
+  /* 5 non-breaking spaces */
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+.loading-lyrics-display-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+
+}
+
+.logo-loading {
+  width: 100px;
+  /* Adjust size as needed */
+  height: 100px;
+  /* Adjust size as needed */
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}

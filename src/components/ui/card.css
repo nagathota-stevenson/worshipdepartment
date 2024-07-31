@@ -1,0 +1,148 @@
+.card {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    background-size: cover;
+    background-position: center;
+    
+    justify-content: space-between;
+   
+  }
+  
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    padding: 5%;
+  }
+
+  .heading-icon {
+    width: 45px;
+    margin-bottom: 15px;
+  }
+  
+  .card-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  
+  .card-heading {
+    font-family: "Nohemi Medium";
+    font-size: 50px; 
+    margin-bottom: 10px;
+    color: #2f2f2f;
+    
+    margin-right: 10px;
+  }
+  .card-heading-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .card-sub-text {
+    font-family: "Nohemi Regular";
+    color: #2f2f2f;
+    font-size: 20px;
+  }
+  
+  .card-right {
+    flex: 1;
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+  }
+
+  .iframe {
+    width: 80%;
+    height: 55vh;
+    border-radius: 30px;
+   
+      
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      position: relative;
+      
+      height: 80vh; 
+      background-size: cover;
+      background-position: center;
+      margin-top: 70px; 
+      
+      
+     
+    }
+  
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      padding: 5%;
+      flex-direction: column; 
+    }
+  
+    .heading-icon {
+      width: 35px; 
+      margin-bottom: 20px; 
+    }
+  
+    .card-left {
+      flex: 1;
+      display: flex;
+      /* flex-direction: column; */
+      justify-content: start;
+    }
+  
+    .card-heading {
+      font-family: "Nohemi Medium";
+      font-size: 36px; /* Reduce font size for mobile */
+      margin-bottom: 10px; /* Adjust margin for mobile */
+      color: #2f2f2f;
+      margin-right: 0; /* Remove right margin for mobile */
+    }
+  
+    .card-heading-container {
+      display: flex;
+      align-items: center;
+      
+    }
+  
+    .card-sub-text {
+      font-family: "Nohemi Regular";
+      color: #2f2f2f;
+      font-size: 16px; /* Reduce font size for mobile */
+    }
+  
+    .card-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto; 
+        min-height: 50vh; 
+        
+        box-sizing: border-box; 
+        padding: 10px;
+       
+      }
+
+      .iframe {
+        width: 100%;
+        min-height: 30vh;
+        max-height: 46vh;
+        border-radius: 20px,
+          
+      }
+    
+  }

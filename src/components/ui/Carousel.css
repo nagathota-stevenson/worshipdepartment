@@ -1,0 +1,55 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-cards {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+  }
+  
+  .carousel-card {
+    min-width: 100%;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .carousel-card.active {
+    opacity: 1;
+  }
+  
+  .carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-dot.active {
+    background-color: #f15f3b;
+  }
+
+  @media (max-width: 768px) { 
+    .carousel-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+
+  }
+  

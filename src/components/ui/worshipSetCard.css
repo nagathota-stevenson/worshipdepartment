@@ -1,0 +1,188 @@
+.setlist-card {
+    background-color: #fff;
+    width: 80%;
+    height: 55vh;
+    padding: 20px;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
+  
+  .card-title {
+    font-size: 25px;
+    margin-bottom: 15px;
+    text-align: start;
+    font-family: "Nohemi Regular";
+  }
+  
+  .set-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+   
+    max-height: 400px; 
+    overflow-y: auto; 
+  }
+  
+  .set-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #b6b6b6;
+    font-family: "Nohemi Regular";
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis when text overflows */
+  }
+  
+  .set-item:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+  }
+  
+  .set-item:first-child {
+    border-top: 1px solid #b6b6b6; /* Add top border for the first item */
+  }
+  
+  .lyrics-button {
+    background: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .lyrics-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .lyrics-button:hover .lyrics-icon {
+    background-color: none;
+  }
+  
+  .set-footer {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 40px;
+    font-family: "Nohemi Regular";
+  }
+  
+  .likes {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .likes span {
+    margin-right: 5px;
+  }
+  
+  .show-more {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    align-items: end;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    
+  
+    .setlist-card {
+      background-color: #fff;
+      width: 100%; 
+      height: 45vh;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 30px; /* Adjust border-radius for mobile */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+  
+    .card-title {
+      font-size: 20px; /* Reduce font size for mobile */
+      margin-bottom: 10px; /* Adjust margin for mobile */
+      text-align: start;
+      font-family: "Nohemi Regular";
+    }
+  
+    .set-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 200px; 
+    overflow-y: auto; 
+    }
+  
+    .set-item {
+      display: flex;
+      
+      justify-content: space-between;
+      align-items: flex-start; /* Align items to start */
+      padding: 10px;
+      font-size: 14px; /* Reduce font size for mobile */
+      border-bottom: 1px solid #b6b6b6;
+      font-family: "Nohemi Regular";
+      text-overflow: ellipsis; 
+      max-width: 100%;
+    }
+  
+    .set-item:last-child {
+      border-bottom: none; /* Remove bottom border for the last item */
+    }
+  
+    .set-item:first-child {
+      border-top: 1px solid #b6b6b6; /* Add top border for the first item */
+    }
+  
+    .lyrics-button {
+      background: none;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+  
+    .lyrics-icon {
+      width: 18px; /* Reduce icon size for mobile */
+      height: 18px; /* Reduce icon size for mobile */
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .lyrics-button:hover .lyrics-icon {
+      background-color: none; /* Remove background color on hover */
+    }
+  
+    .set-footer {
+      font-size: 14px; /* Reduce font size for mobile */
+      display: flex;
+        
+      align-items: center; /* Align items to start */
+      margin-top: 40px; /* Adjust padding for mobile */
+      font-family: "Nohemi Regular";
+    }
+  
+    .likes {
+      display: flex;
+      align-items: center;
+      font-size: 12px; /* Reduce font size for mobile */
+    }
+  
+    .likes span {
+      margin-right: 5px; /* Adjust margin for mobile */
+    }
+  
+    .show-more {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 5px 10px; 
+      font-size: 12px; /* Reduce font size for mobile */
+      cursor: pointer;
+    }
+  }

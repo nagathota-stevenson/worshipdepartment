@@ -1,0 +1,220 @@
+.search-container {
+    text-decoration-color: #2f2f2f;
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    position: relative;
+    /* Adjust as needed */
+    margin: 30px auto;
+    /* Center container horizontally */
+}
+
+@keyframes loading-dots {
+    0% {
+        content: ".";
+    }
+
+    33% {
+        content: "..";
+    }
+
+    66% {
+        content: "...";
+    }
+}
+
+.loading-dots::after {
+    content: "...";
+    animation: loading-dots 1s steps(3, end) infinite;
+}
+
+.search-bar {
+    font-family: "Nohemi Regular";
+    flex: 1;
+    padding: 5px 50px;
+    border: 2px solid #d9d9d9;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 28px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.songs-by-category-search-page{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Nohemi Regular";
+    color: #f6f6f6;
+    font-size: 35px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+}
+
+.heading-icon-search-page {
+    height: 30px;
+}
+
+.songs-by-category-container-search-page {
+    padding-top: 20px;
+    width: 28vw;
+    background-color: #2f2f2f;
+}
+
+.lyrics-search-page-suggestions-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #f6f6f6;
+    margin-top: 40vh;
+    align-items: start;
+    padding: 0 50px;
+    background-color: #2f2f2f;
+}
+
+.search-icon {
+    position: absolute;
+    margin-left: 20px;
+    height: 20px;
+    align-items: center;
+    color: #d9d9d9;
+    pointer-events: none;
+}
+
+.related-songs {
+    
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.related-songs-container-search-page {
+    width: 100%;
+   
+   
+}
+
+
+.search-bar:focus {
+    border-color: #2f2f2f;
+    /* Change border color on focus */
+}
+
+.songs-by-category {
+    padding-top: 0.5em;
+    font-size: 40px;
+    font-family: 'Nohemi Regular';
+
+}
+
+.lyrics-row {
+    display: flex;
+    align-items: center;
+    text-overflow: ellipsis;
+    height: 100px;
+    justify-content: space-between;
+    padding: 0px 50px;
+    border-bottom: 1px solid #c8c8c8;
+    flex-direction: row;
+    transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.lyrics-row:first-child {
+    border-top: 1px solid #c8c8c8;
+}
+
+.result-song-title {
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Nohemi Regular';
+    color: #2f2f2f;
+    font-size: 60px;
+}
+
+.result-song-artist {
+    width: 30%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Nohemi Light';
+    color: #2f2f2f;
+    font-size: 22px;
+    flex: 0 0 25%;
+
+}
+
+.lyrics-row:hover {
+    background-color: #f15f3b;
+    /* Background color on hover */
+    color: #f6f6f6;
+    /* Text color on hover */
+}
+
+
+
+
+.result-song-title-loading {
+    font-family: 'Nohemi Regular';
+    color: #d9d9d9;
+    font-size: 70px;
+}
+
+.result-song-artist-loading {
+    font-family: 'Nohemi Light';
+    color: #d9d9d9;
+    font-size: 22px;
+    flex: 0 0 25%;
+}
+
+.show-more-container-lyrics {
+   
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.divider-lyrics-search-page {
+    height: 2px;
+    width: 100%;
+    background-color: #2f2f2f;
+    margin-top: 70px;
+    border: none;
+
+}
+
+.show-more-container-search {
+    padding-top: 20px;
+
+}
+
+.show-more-button-lyrics {
+
+    font-family: "Nohemi Regular";
+    background-color: #f0f0f0;
+    /* Initial background color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #2f2f2f;
+    /* Initial text color */
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out;
+    /* Smooth transition */
+}
+
+/* Hover effects for the button */
+.show-more-button-lyrics:hover {
+    background-color: #f15f3b;
+    /* Background color on hover */
+    color: #f6f6f6;
+    /* Text color on hover */
+    transform: scale(1.02);
+    /* Slightly scale up the button */
+}

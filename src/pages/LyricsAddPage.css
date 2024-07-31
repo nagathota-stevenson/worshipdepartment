@@ -1,0 +1,226 @@
+/* LyricsAddPage.css */
+
+/* Container for the entire page */
+.lyrics-add-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Nohemi Regular';
+}
+
+/* Form container */
+.lyrics-form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Heading styles */
+.page-heading {
+    font-size: 40px;
+    color: #2f2f2f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form group styling */
+.form-group-container {
+    margin-bottom: 20px;
+}
+
+/* Styling for input labels */
+.input-label {
+    
+    font-size: 20px;
+    color: #2f2f2f;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Styling for text inputs, number inputs, and select boxes */
+.input-field,
+.number-input,
+.select-dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #8a8a8a;
+}
+
+.input-field-language{
+    width: 100%;
+    height: 40vh;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #8a8a8a;
+}
+
+
+.input-field-english-lyrics{
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #8a8a8a;
+}
+
+
+
+/* Styling for buttons */
+.submit-button {
+    width: 200px;
+    padding: 10px;
+    background-color: #f15f3b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #e14b27;
+}
+
+/* Section for lyrics (Telugu and English) */
+.lyrics-section-container {
+    margin-bottom: 30px;
+    
+    
+}
+
+.lyrics-side-by-side-container {
+    display: flex;
+    gap: 10px;
+}
+
+.english-lines{
+    width: 50%;
+}
+
+.original-lines{
+    width: 50%;
+}
+
+.lyrics-section-container h2{
+    font-size: 30px;
+    padding: 20px 0px;
+    color: #f15f3b;
+}
+
+/* Flex container for chord and lyric lines */
+.chord-lyric-pair-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Button container for adding lines */
+.add-line-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: #f15f3b;
+    color: #f2f2f2;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+/* Styling for tags container */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Individual tag styling */
+.tag-item {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Remove tag button styling */
+.remove-tag-button {
+    background: none;
+    border: none;
+    color: #f15f3b;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+/* Container for adding new tags */
+.add-tag-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-top: 10px;
+    
+}
+
+.convert-buttons-container{
+    display: flex;
+    gap: 10px;
+}
+
+.input-fields-lyrics{
+    display: flex;
+    padding: 10px 0;
+    gap: 20px;
+}
+/* Input field within the add tag container */
+.add-tag-input {
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #2f2f2f;
+    
+}
+
+/* Input container for special adjustments */
+.special-input-container {
+    position: relative;
+  
+}
+
+/* Adjust input width */
+.special-input-field {
+    width: calc(100% - 100px); /* Adjust width to accommodate buttons */
+}
+
+/* Container for buttons in pairs */
+.button-pair-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Individual button in the pair container */
+.button-pair {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-pair:hover {
+    background-color: #e0e0e0;
+}
+
+.success-message {
+    font-family: 'Nohemi Regular';
+    color: #f15f3b;
+    font-size: 30px;
+}

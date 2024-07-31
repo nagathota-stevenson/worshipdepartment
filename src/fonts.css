@@ -1,0 +1,56 @@
+/* fonts.css */
+
+@font-face {
+    font-family: 'Nohemi Black';
+    src: url('/public/fonts/Nohemi-Black.otf') format('opentype');
+    font-weight: 900; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi Bold';
+    src: url('/public/fonts/Nohemi-Bold.otf') format('opentype');
+    font-weight: bold; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi ExtraBold';
+    src: url('/public/fonts/Nohemi-ExtraBold.otf') format('opentype');
+    font-weight: 800; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi ExtraLight';
+    src: url('/public/fonts/Nohemi-ExtraLight.otf') format('opentype');
+    font-weight: 200; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi Light';
+    src: url('/public/fonts/Nohemi-Light.otf') format('opentype');
+    font-weight: 300; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi Medium';
+    src: url('/public/fonts/Nohemi-Medium.otf') format('opentype');
+    font-weight: 500; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi Regular';
+    src: url('/public/fonts/Nohemi-Regular.otf') format('opentype');
+    font-weight: normal; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi SemiBold';
+    src: url('/public/fonts/Nohemi-SemiBold.otf') format('opentype');
+    font-weight: 600; /* Adjust weight as needed */
+  }
+  
+  @font-face {
+    font-family: 'Nohemi Thin';
+    src: url('/public/fonts/Nohemi-Thin.otf') format('opentype');
+    font-weight: 100; /* Adjust weight as needed */
+  }
+  

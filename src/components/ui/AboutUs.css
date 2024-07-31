@@ -1,0 +1,126 @@
+.about-us-container {
+  text-align: center;
+}
+
+.about-us-container h1 {
+  font-family: 'Nohemi Medium', sans-serif;
+  font-size: 48px;
+  background-color: #2f2f2f;
+  color: #f6f6f6;
+  padding: 2% 0;
+  text-align: center;
+}
+
+.main-title {
+  font-family: 'Nohemi Medium', sans-serif;
+    font-size: 48px;
+    background-color: #2f2f2f;
+    width: 100%;
+    color: #f6f6f6;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.cards-container {
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #2f2f2f;
+  height: 45vh;
+}
+
+.about-card {
+  color: #f6f6f6;
+  border-radius: 20px;
+  padding: 20px;
+ 
+  width: 25vw;
+  height: 40vh;
+  text-align: left;
+}
+
+.icon {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.about-card h2 {
+  font-family: 'Nohemi Medium', sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-family: 'Nohemi Light', sans-serif;
+  font-size: 16px;
+  /* margin-bottom: 20px; */
+}
+
+.about-card button {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-family: 'Nohemi Regular', sans-serif;
+  cursor: pointer;
+}
+
+.about-card button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+  .about-us-container h1 {
+    font-size: 40px;
+    
+   
+  }
+
+  .main-title {
+    font-family: 'Nohemi Medium', sans-serif;
+      font-size: 48px;
+      background-color: #2f2f2f;
+      width: 100%;
+      color: #f6f6f6;
+      padding-top: 100px;
+      padding-left: 40px;
+      text-align: left;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: start;
+    height: auto;
+    
+    padding-left: 5%;
+  }
+
+  .about-card {
+    width: 80vw;
+   
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .about-card h2 {
+    font-size: 25px;
+    
+  }
+
+  .about-card p {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .icon img {
+    width: 40px;
+    height: 40px;
+  }
+}

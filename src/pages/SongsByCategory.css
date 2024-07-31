@@ -1,0 +1,122 @@
+.songs-by-category-page {
+    position: relative;
+    flex-direction: 'column';
+}
+
+.category-title {
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    font-family: 'Nohemi Regular';
+}
+
+.category-song-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.category-cards-container {
+    padding: 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 30px;
+    background-color: transparent;
+    min-height: 45vh;
+    justify-content: start;
+    
+}
+
+.category-song-card {
+    /* padding: 10px; */
+    display: block;
+    width: 250px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff;
+    transition: transform 1s ease;
+}
+
+.category-song-card:hover {
+    transform: scale(1.05);
+    background-color: #f15f3b;
+    color: #fff;
+}
+
+.category-card-content {
+    padding: 20px;
+}
+
+.category-card-song-title {
+    font-size: 18px;
+    font-family: 'Nohemi Regular';
+    height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Adds the ellipsis when the text overflows */
+    width: 100%;
+    /* Ensure the element has a width to trigger overflow */
+
+
+}
+
+.category-card-song-artist,
+.category-card-song-views {
+    font-family: 'Nohemi Light';
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.category-card-loading {
+    text-align: center;
+    font-size: 18px;
+}
+
+.show-more-container-category {
+    text-align: center;
+    margin: 20px;
+}
+
+.show-more-button-category {
+    font-family: "Nohemi Regular";
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #2f2f2f;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.show-more-button-category:hover {
+    background-color: #f15f3b;
+    color: white;
+}
+
+.filters {
+    font-family: "Nohemi Regular";
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+  
+  .filters input {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    width: 400px;
+
+  }
+  
+  .filters input:focus {
+    border-color: #2f2f2f;
+    outline: none;
+  }
