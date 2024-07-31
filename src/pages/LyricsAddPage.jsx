@@ -6,8 +6,8 @@ import OpenAI from "openai";
 import { parseString } from "xml2js";
 
 const openai = new OpenAI({
-  apiKey: "sk-proj-F3OFYSnW0T3O4kHEiotNT3BlbkFJtvWK0o7Jh3ATCNpP4WkG",
-  dangerouslyAllowBrowser: true,
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true
 });
 
 const categories = [
