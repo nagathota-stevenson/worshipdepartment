@@ -54,3 +54,8 @@
     font-weight: 100; /* Adjust weight as needed */
   }
   
+
+  @font-face {
+    font-family: 'PPF';
+    src: url('/public/fonts/ppf.otf') format('opentype');
+  }

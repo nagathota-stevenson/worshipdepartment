@@ -40,7 +40,7 @@
 }
 
 /* Styling for text inputs, number inputs, and select boxes */
-.input-field,
+.input-field-add-lyrics,
 .number-input,
 .select-dropdown {
     width: 100%;
@@ -48,6 +48,10 @@
     font-size: 16px;
     border-radius: 20px;
     border: 1px solid #8a8a8a;
+}
+
+.input-field :focus {
+    border: 1px solid #f15f3b;
 }
 
 .input-field-language{
@@ -71,7 +75,7 @@
 
 
 /* Styling for buttons */
-.submit-button {
+.submit-button-add-lyrics {
     width: 200px;
     padding: 10px;
     background-color: #f15f3b;
@@ -83,7 +87,7 @@
     transition: background-color 0.3s;
 }
 
-.submit-button:hover {
+.submit-button-add-lyrics:hover {
     background-color: #e14b27;
 }
 
@@ -223,4 +227,404 @@
     font-family: 'Nohemi Regular';
     color: #f15f3b;
     font-size: 30px;
+}
+.form-group-container {
+    position: relative; /* Allows the dropdown to be positioned correctly */
+    margin-bottom: 1rem; /* Adds some spacing below the container */
+  }
+  
+  .autocomplete-container {
+    position: relative; /* Allows for positioning the suggestions list */
+  }
+  
+  .input-field {
+    width: 100%; /* Full width of the container */
+    height: 2.5rem; /* Adjust height as needed */
+    padding: 0.5rem; /* Padding inside the input field */
+    box-sizing: border-box; /* Ensures padding does not affect the width */
+  }
+  
+  .suggestions-list {
+    position: absolute;
+    top: 100%; /* Position the dropdown directly below the input field */
+    left: 0;
+    right: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 200px; /* Limit the height of the dropdown */
+    overflow-y: auto; /* Scroll if content exceeds max-height */
+    z-index: 1000; /* Ensure dropdown appears above other elements */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .suggestion-item {
+    padding: 0.5rem; /* Padding inside each suggestion item */
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f0f0f0; /* Highlight item on hover */
+  }
+  
+  .new-artist-form {
+    margin-top: 20px;
+  }
+
+  .autocomplete-container {
+    position: relative; /* Required to position the datalist */
+    width: 100%; /* Adjust as needed */
+  }
+  
+  /* Style for the input field */
+  .autocomplete-container input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for input */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    box-sizing: border-box; /* Ensures padding and border are included in width */
+  }
+  
+  /* Style for the datalist (though it's not styled in practice, this will show as a list of options) */
+  .autocomplete-container ul {
+    position: absolute; /* Absolute positioning to align with input */
+    z-index: 1000; /* Ensures it's on top of other elements */
+    background: #fff; /* Background color of the options */
+    border: 1px solid #ccc; /* Border of the datalist */
+    width: 100%; /* Full width of the input field */
+    max-height: 150px; /* Maximum height for the list */
+    overflow-y: auto; /* Scrollable if there are many options */
+  }
+  
+  /* Style for individual options within the datalist */
+  .autocomplete-container datalist option {
+    padding: 10px; /* Padding within each option */
+    cursor: pointer; /* Pointer cursor for clickable options */
+  }
+  
+  /* Optional: Hover effect for better UX */
+  .autocomplete-container datalist option:hover {
+    background-color: #f0f0f0; /* Light background on hover */
+  }
+
+  /* LyricsAddPage.css */
+
+/* Mobile-specific CSS */
+@media (max-width: 767px) {
+
+    /* Container for the entire page */
+    .lyrics-add-page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        padding-top: 100px;
+        font-family: 'Nohemi Regular';
+    }
+
+    /* Form container */
+    .lyrics-form-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Heading styles */
+    .page-heading {
+        font-size: 30px;
+        color: #2f2f2f;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Form group styling */
+    .form-group-container {
+        margin-bottom: 20px;
+    }
+
+    /* Styling for input labels */
+    .input-label {
+        font-size: 18px;
+        color: #2f2f2f;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Styling for text inputs, number inputs, and select boxes */
+    .input-field,
+    .number-input,
+    .select-dropdown {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .input-field:focus {
+        border: 1px solid #f15f3b;
+    }
+
+    .input-field-language {
+        width: 100%;
+        height: 30vh; /* Adjusted for mobile */
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 1px solid #8a8a8a;
+    }
+
+    .input-field-english-lyrics {
+        width: 100%; /* Adjusted for mobile */
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 1px solid #8a8a8a;
+    }
+
+    /* Styling for buttons */
+    .submit-button-add-lyrics {
+        width: 100%;
+        padding: 10px;
+        background-color: #f15f3b;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-button-add-lyrics:hover {
+        background-color: #e14b27;
+    }
+
+    /* Section for lyrics (Telugu and English) */
+    .lyrics-section-container {
+        margin-bottom: 30px;
+    }
+
+    .lyrics-side-by-side-container {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 10px;
+    }
+
+    .english-lines,
+    .original-lines {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .lyrics-section-container h2 {
+        font-size: 25px;
+        padding: 20px 0px;
+        color: #f15f3b;
+    }
+
+    /* Flex container for chord and lyric lines */
+    .chord-lyric-pair-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    /* Button container for adding lines */
+    .add-line-button-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        background-color: #f15f3b;
+        color: #f2f2f2;
+        padding: 10px;
+        border-radius: 30px;
+    }
+
+    /* Styling for tags container */
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* Individual tag styling */
+    .tag-item {
+        background-color: #e0e0e0;
+        padding: 5px 10px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Remove tag button styling */
+    .remove-tag-button {
+        background: none;
+        border: none;
+        color: #f15f3b;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 5px;
+    }
+
+    /* Container for adding new tags */
+    .add-tag-container {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 10px;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .convert-buttons-container {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 10px;
+    }
+
+    .input-fields-lyrics {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        padding: 10px 0;
+        gap: 20px;
+    }
+
+    /* Input field within the add tag container */
+    .add-tag-input {
+        flex-grow: 1;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 1px solid #2f2f2f;
+    }
+
+    /* Input container for special adjustments */
+    .special-input-container {
+        position: relative;
+    }
+
+    /* Adjust input width */
+    .special-input-field {
+        width: 100%; /* Full width on mobile */
+    }
+
+    /* Container for buttons in pairs */
+    .button-pair-container {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+
+    /* Individual button in the pair container */
+    .button-pair {
+        width: 100%; /* Full width on mobile */
+        height: 50px;
+        border: 1px solid #ccc;
+        border-left: none;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .button-pair:hover {
+        background-color: #e0e0e0;
+    }
+
+    .success-message {
+        font-family: 'Nohemi Regular';
+        color: #f15f3b;
+        font-size: 20px; /* Adjusted for mobile */
+    }
+
+    /* Adjust form group container positioning */
+    .form-group-container {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust autocomplete container */
+    .autocomplete-container {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Style for input field */
+    .autocomplete-container input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    /* Adjust suggestions list */
+    .suggestions-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .suggestion-item {
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .new-artist-form {
+        margin-top: 20px;
+    }
+
+    /* Adjust autocomplete container positioning */
+    .autocomplete-container {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Style for input field within autocomplete container */
+    .autocomplete-container input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    /* Style for datalist */
+    .autocomplete-container ul {
+        position: absolute;
+        z-index: 1000;
+        background: #fff;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    /* Style for datalist options */
+    .autocomplete-container datalist option {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    /* Hover effect for datalist options */
+    .autocomplete-container datalist option:hover {
+        background-color: #f0f0f0;
+    }
 }

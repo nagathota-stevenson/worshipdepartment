@@ -1,9 +1,6 @@
 .home-page {
    
     position: relative;
-    flex-direction: 'column',
+    flex-direction: 'column';
     
 }
-
-
-

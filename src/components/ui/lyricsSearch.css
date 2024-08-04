@@ -83,13 +83,28 @@
 }
 
 .related-songs {
-    
+    display: flex;
     list-style: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.song-title-suggestions-search-page{
+    /* width: 90%; */
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lottie-container {
+    transform: translateY(-25%);
+    margin-left: 10px;
+    width: 25px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
+  }
+  
 
 
 .related-songs-container-search-page {
@@ -218,3 +233,201 @@
     transform: scale(1.02);
     /* Slightly scale up the button */
 }
+
+/* Mobile-specific CSS */
+
+@media (max-width: 767px) {
+
+    .search-container {
+      text-decoration-color: #2f2f2f;
+      display: flex;
+      align-items: center;
+      max-width: 90%;
+      position: relative;
+      padding-top: 80px;
+     
+    }
+  
+    .search-bar {
+      font-family: "Nohemi Regular";
+      flex: 1;
+      padding: 5px 30px;
+      border: 2px solid #d9d9d9;
+      align-items: center;
+      border-radius: 20px;
+      font-size: 20px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+  
+    .songs-by-category-search-page {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: "Nohemi Regular";
+      color: #f6f6f6;
+      font-size: 24px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+  
+    .heading-icon-search-page {
+      height: 20px;
+    }
+  
+    .songs-by-category-container-search-page {
+      padding-top: 10px;
+      width: 90vw;
+      background-color: #2f2f2f;
+    }
+  
+    .lyrics-search-page-suggestions-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      color: #f6f6f6;
+      margin-top: 20vh;
+      align-items: center;
+      padding: 0 20px;
+      background-color: #2f2f2f;
+    }
+  
+    .search-icon {
+      position: absolute;
+      margin-left: 10px;
+      height: 15px;
+      transform: translateY(-2px);
+      align-items: center;
+      color: #d9d9d9;
+      pointer-events: none;
+    }
+  
+    .related-songs {
+      display: flex;
+      list-style: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .song-title-suggestions-search-page {
+      list-style: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .lottie-container {
+      transform: translateY(-25%);
+      margin-left: 5px;
+      width: 20px;
+      height: 20px;
+    }
+  
+    .related-songs-container-search-page {
+      width: 100%;
+    }
+  
+    .search-bar:focus {
+      border-color: #2f2f2f;
+    }
+  
+    .songs-by-category {
+      padding-top: 0.5em;
+      font-size: 30px;
+      font-family: 'Nohemi Regular';
+    }
+  
+    .lyrics-row {
+      display: flex;
+      align-items: center;
+      text-overflow: ellipsis;
+      height: 70px;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid #c8c8c8;
+      flex-direction: row;
+      transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+  
+    .lyrics-row:first-child {
+      border-top: 1px solid #c8c8c8;
+    }
+  
+    .result-song-title {
+      width: 60%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Nohemi Regular';
+      color: #2f2f2f;
+      font-size: 25px;
+    }
+  
+    .result-song-artist {
+      width: 40%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Nohemi Light';
+      color: #2f2f2f;
+      font-size: 10px;
+      flex: 0 0 35%;
+    }
+  
+    .lyrics-row:hover {
+      background-color: #f15f3b;
+      color: #f6f6f6;
+    }
+  
+    .result-song-title-loading {
+      font-family: 'Nohemi Regular';
+      color: #d9d9d9;
+      font-size: 25px;
+    }
+  
+    .result-song-artist-loading {
+      font-family: 'Nohemi Light';
+      color: #d9d9d9;
+      font-size: 10px;
+      flex: 0 0 35%;
+    }
+  
+    .show-more-container-lyrics {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .divider-lyrics-search-page {
+      height: 2px;
+      width: 100%;
+      background-color: #2f2f2f;
+      margin-top: 30px;
+      border: none;
+    }
+  
+    .show-more-container-search {
+      padding-top: 20px;
+    }
+  
+    .show-more-button-lyrics {
+      font-family: "Nohemi Regular";
+      background-color: #f0f0f0;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      color: #2f2f2f;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+  
+    .show-more-button-lyrics:hover {
+      background-color: #f15f3b;
+      color: #f6f6f6;
+      transform: scale(1.02);
+    }
+  }
+  

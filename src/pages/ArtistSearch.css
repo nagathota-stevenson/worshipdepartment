@@ -1,0 +1,77 @@
+.artist-search-container {
+    position: relative;
+    margin-bottom: 1em;
+  }
+  
+  .artist-search-container input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .suggestions-list li {
+    padding: 0.5em;
+    cursor: pointer;
+  }
+  
+  .suggestions-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .create-artist-container {
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .create-artist-container label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  
+  .create-artist-container input,
+  .create-artist-container textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.2em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .create-artist-container button {
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .create-artist-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .input-field-artist {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid #8a8a8a;
+  }

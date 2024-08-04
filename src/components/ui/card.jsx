@@ -8,7 +8,9 @@ const Card = ({ heading, subText, headingIcon, backgroundImage, childComponent }
       <div className="card-overlay">
         <div className="card-left">
           <div className="card-heading-container">
-            <h1 className="card-heading">{heading}
+            <h1 className="card-heading"
+            
+            >{heading}
 
               
             </h1>

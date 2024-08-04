@@ -6,7 +6,7 @@
     padding-left: 30px;
     text-align: start;
     font-family: 'Nohemi Regular';
-   
+
     
   }
   
@@ -42,12 +42,13 @@
   }
   
   .footer-links {
+    
     margin-bottom: 20px;
   }
   
   .footer-link {
     color: #fff;
-    padding: 5px;
+    padding-right: 20px;
     /* margin: 0 15px; */
     text-decoration: none;
     transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */

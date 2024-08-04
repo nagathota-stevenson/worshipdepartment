@@ -1,0 +1,166 @@
+/* LoginCard.css */
+
+/* Overlay for the login card */
+.login-card-overlay-custom {
+  font-family: 'Nohemi Regular';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Container for the login card */
+.login-card-custom {
+  font-family: 'Nohemi Regular';
+  width: 100%;
+  max-width: 400px;
+  color: #2f2f2f;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading and text styles */
+.page-heading-custom {
+  font-size: 30px;
+  color: #2f2f2f;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.error-message-custom {
+  color: #ff4949;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.success-message-custom {
+  color: #ff2d2d;
+}
+
+/* Form styles */
+.form-group-container-custom {
+  margin-bottom: 20px;
+}
+
+.input-label-custom {
+  font-size: 20px;
+  color: #2f2f2f;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-field-custom {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #8a8a8a;
+}
+
+.input-field-custom:focus {
+  border: 1px solid #f15f3b;
+}
+
+/* Login button styles */
+.login-button-custom {
+  width: 100%;
+  padding: 10px;
+  background-color: #f15f3b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button-custom:hover {
+  background-color: #e14b27;
+}
+
+/* Google login button styles */
+.google-login-button-custom {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.google-login-button-custom:hover {
+  background-color: #357ae8;
+}
+
+/* Close button styles */
+.login-card-close-button-custom {
+  position: absolute;
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.sign-up-prompt{
+  font-family: 'Nohemi Light';
+  font-size: '14px';
+}
+
+@media (max-width: 600px) {
+  .login-card-overlay-custom {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .login-card-custom {
+    width: 350px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .page-heading-custom {
+    font-size: 20px;
+  }
+
+  .input-label-custom {
+    font-size: 14px;
+  }
+
+  .input-field-custom {
+    font-size: 14px;
+  }
+
+  .login-button-custom {
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+   
+  }
+
+  .google-login-button-custom {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

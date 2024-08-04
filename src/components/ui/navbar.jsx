@@ -33,10 +33,10 @@ const NavBar = () => {
             </li>
           </div>
           <MenuItem name="NEWS" path= "/" />
-          <MenuItem name="LYRICS" path= "/lyrics" />
-          <MenuItem name="TUTORIALS" path= "/lyrics" />
-          <MenuItem name="SONG STORIES" path= "/lyrics" />
-          <MenuItem name="STORE" path= "/addlyrics" />
+          <MenuItem name="SONGS" path= "/songs" />
+          <MenuItem name="TUTORIALS" path= "/" />
+          <MenuItem name="SONG STORIES" path= "/" />
+          <MenuItem name="STORE" path= "/" />
         </ul>
       </nav>
     </header>

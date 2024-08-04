@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LyricsAddPage.css"; // Ensure the updated CSS file is used
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  doc,
+  arrayUnion,
+} from "firebase/firestore";
 import NavBar from "../components/ui/navbar";
 import OpenAI from "openai";
 import { parseString } from "xml2js";
+import ArtistSearch from "./SearchAddArtist";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const openai = new OpenAI({
-  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true
+  apiKey: "sk-proj-ZEn1KdWDkZU9cKhZ1YqST3BlbkFJ3c1aqj2kLpqBPYGgUHuO",
+  dangerouslyAllowBrowser: true,
 });
 
 const categories = [
@@ -40,9 +51,8 @@ const categories = [
   "Trust",
   "Victory",
   "Creation",
-  "Joy"
+  "Joy",
 ];
-
 
 const scales = [
   "N/A",
@@ -132,10 +142,9 @@ const scaleChords = {
   "Ab Minor": ["Abm", "Bbdim", "Cb", "Dbm", "Ebm", "Fb", "Gb"],
 };
 
-
 const LyricsAddPage = () => {
   const [title, setTitle] = useState("");
-  const [artist, setArtist] = useState("");
+  const [artistId, setArtistId] = useState("");
   const [scale, setScale] = useState("");
   const [category, setCategory] = useState("");
   const [language, setLanguage] = useState("Telugu");
@@ -153,6 +162,24 @@ const LyricsAddPage = () => {
   const [translatedLyrics, setTranslatedLyrics] = useState([]);
   const [isConverted, setIsConverted] = useState(false);
   const [chords, setChords] = useState([]);
+  const [artistSuggestions, setArtistSuggestions] = useState([]);
+  const [artistName, setArtistName] = useState("");
+
+  const [user, setUser] = useState(null); // Firebase auth user state
+  const navigate = useNavigate(); // Use useNavigate for navigation
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        navigate("/login"); // Redirect to login if not authenticated
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleConvertLyrics = () => {
     const lines = lyricsInput.split("\n").map((line) => ({ lyric: line }));
@@ -174,7 +201,9 @@ const LyricsAddPage = () => {
           const verses = xmlDoc.getElementsByTagName("verse");
           let lyricsArray = [];
           for (let verse of verses) {
-            const lines = verse.getElementsByTagName("lines")[0].textContent.split("<br/>");
+            const lines = verse
+              .getElementsByTagName("lines")[0]
+              .textContent.split("<br/>");
             lyricsArray.push(...lines);
           }
           setLyricsInput(lyricsArray.join("\n"));
@@ -185,8 +214,6 @@ const LyricsAddPage = () => {
       reader.readAsText(file);
     }
   };
-
-
 
   const handleChangeLyricsLine = (
     index,
@@ -227,23 +254,26 @@ const LyricsAddPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    if (!user) {
+      setErrorMessage("You must be logged in to add lyrics.");
+      return;
+    }
+    setLoading(true);
 
     // Input validation
-    if (!title || !artist || !scale || !link || !lyricsLines.length) {
+    if (!title || !artistId || !scale || !link || !lyricsLines.length) {
       setErrorMessage("Please fill out all required fields.");
-      alert("Please fill out all required fields.");
-      setLoading(false); // Stop loading
+      setLoading(false);
       return;
     }
 
     // Prepare data
     const newLyricsData = {
       title: title.toLowerCase(),
-      artist: artist.toLowerCase(),
+      artistId: artistId,
       scale,
       category: category.toLowerCase(),
-      lan: language, 
+      lan: language,
       chords: addingChords ? chords : [],
       likes: likes,
       views: views,
@@ -254,15 +284,17 @@ const LyricsAddPage = () => {
     };
 
     try {
-      // Get Firestore instance
       const db = getFirestore();
-      // Add document to Firestore
       const docRef = await addDoc(collection(db, "songs"), newLyricsData);
-      // Update success message
+
+      const artistDocRef = doc(db, "artists", artistId);
+      await updateDoc(artistDocRef, {
+        songs: arrayUnion(docRef.id),
+      });
+
       setSuccessMessage(`Lyrics added successfully for ${title}!`);
-      // Clear form fields
       setTitle("");
-      setArtist("");
+      setArtistId("");
       setScale("");
       setCategory("");
       setLanguage("Telugu");
@@ -274,12 +306,11 @@ const LyricsAddPage = () => {
       setTags([]);
       setChords([]);
     } catch (error) {
-      // Handle errors
       console.error("Error adding document: ", error);
       setErrorMessage("Error adding lyrics. Please try again.");
     }
 
-    setLoading(false); // Stop loading
+    setLoading(false);
   };
 
   const handleTranslateToEnglish = async () => {
@@ -314,6 +345,27 @@ const LyricsAddPage = () => {
 
   const availableChords = scaleChords[scale] || [];
 
+  useEffect(() => {
+    const fetchArtists = async () => {
+      const db = getFirestore();
+      const artistsCollection = collection(db, "artists");
+      const artistSnapshot = await getDocs(artistsCollection);
+      const artistsList = artistSnapshot.docs.map((doc) => doc.data().name);
+      setArtistSuggestions(artistsList);
+    };
+
+    fetchArtists();
+  }, []);
+
+  const handleArtistChange = (e) => {
+    setArtistId(e.target.value);
+  };
+
+  // Filter suggestions based on input value
+  const filteredSuggestions = artistSuggestions.filter((suggestion) =>
+    suggestion.toLowerCase().includes(artistId.toLowerCase())
+  );
+
   return (
     <div>
       <NavBar />
@@ -334,20 +386,18 @@ const LyricsAddPage = () => {
               <label className="input-label">Title:</label>
               <input
                 type="text"
-                className="input-field"
+                className="input-field-add-lyrics"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div className="form-group-container">
-              <label className="input-label">Artist:</label>
-              <input
-                type="text"
-                className="input-field"
-                value={artist}
-                onChange={(e) => setArtist(e.target.value)}
-              />
-            </div>
+            <label className="input-label">Artist:</label>
+            <ArtistSearch
+              artistId={artistId}
+              setArtistId={setArtistId}
+              artistName={artistName}
+              setArtistName={setArtistName}
+            />
             <div className="form-group-container">
               <label className="input-label">Scale:</label>
               <select
@@ -419,22 +469,22 @@ const LyricsAddPage = () => {
                 />
               </div>
               <div className="convert-buttons-container">
-              <input
-                    type="file"
-                    className="file-upload-input"
-                    accept=".txt,.xml"
-                    onChange={handleFileUpload}
-                  />
+                <input
+                  type="file"
+                  className="file-upload-input"
+                  accept=".txt,.xml"
+                  onChange={handleFileUpload}
+                />
                 <button
                   type="button"
-                  className="submit-button"
+                  className="submit-button-add-lyrics"
                   onClick={handleConvertLyrics}
                 >
                   Convert to Line by Line
                 </button>
                 <button
                   type="button"
-                  className="submit-button"
+                  className="submit-button-add-lyrics"
                   onClick={handleTranslateToEnglish}
                   disabled={!isConverted || loading} // Disable button if not converted or loading
                 >
@@ -459,7 +509,7 @@ const LyricsAddPage = () => {
                           </label>
                           <input
                             type="text"
-                            className="input-field"
+                            className="input-field-add-lyrics"
                             value={chords[index] || ""}
                             onChange={(e) =>
                               handleChangeLyricsLine(
@@ -477,7 +527,7 @@ const LyricsAddPage = () => {
                       </label>
                       <input
                         type="text"
-                        className="input-field"
+                        className="input-field-add-lyrics"
                         value={line.lyric}
                         onChange={(e) =>
                           handleChangeLyricsLine(index, "lyric", e.target.value)
@@ -495,7 +545,7 @@ const LyricsAddPage = () => {
                       </label>
                       <input
                         type="text"
-                        className="input-field"
+                        className="input-field-add-lyrics"
                         value={line.lyric}
                         onChange={(e) =>
                           handleChangeLyricsLine(
@@ -516,7 +566,7 @@ const LyricsAddPage = () => {
               <label className="input-label">Link:</label>
               <input
                 type="text"
-                className="input-field"
+                className="input-field-add-lyrics"
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
               />
@@ -525,7 +575,7 @@ const LyricsAddPage = () => {
               <label className="input-label">Views:</label>
               <input
                 type="number"
-                className="input-field"
+                className="input-field-add-lyrics"
                 value={views}
                 onChange={(e) => setViews(parseInt(e.target.value))}
               />
@@ -534,7 +584,7 @@ const LyricsAddPage = () => {
               <label className="input-label">Likes:</label>
               <input
                 type="number"
-                className="input-field"
+                className="input-field-add-lyrics"
                 value={likes}
                 onChange={(e) => setLikes(parseInt(e.target.value))}
               />
@@ -556,7 +606,7 @@ const LyricsAddPage = () => {
                 ))}
                 <input
                   type="text"
-                  className="input-field"
+                  className="input-field-add-lyrics"
                   value={newTag}
                   onChange={(e) => setNewTag(e.target.value)}
                   placeholder="Add a tag"
@@ -571,7 +621,7 @@ const LyricsAddPage = () => {
               </div>
             </div>
             <div className="form-group-container">
-              <button type="submit" className="submit-button">
+              <button type="submit" className="submit-button-add-lyrics">
                 Submit
               </button>
             </div>

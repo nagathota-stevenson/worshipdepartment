@@ -9,16 +9,17 @@ import {
   getDocs,
   orderBy,
   limit,
+  doc,
+  getDoc
 } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./footer";
 import { useMediaQuery } from "react-responsive";
+import Suggestions from "./Suggestions";
+
 const db = getFirestore();
 
-const capitalize = (text) => {
-  return text.replace(/\b\w/g, (char) => char.toUpperCase());
-};
 
 const categories = [
   "Worship",
@@ -52,6 +53,7 @@ const categories = [
   "Creation",
   "Joy",
 ];
+
 const LyricsSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [songs, setSongs] = useState([]);
@@ -78,13 +80,8 @@ const LyricsSearch = () => {
   };
 
   const handleShowLessCategory = () => {
-    setVisibleCount((prevCount) => {
-      const newCount = 5;
-      if (newCount === 5) {
-        setShowMore(true);
-      }
-      return newCount;
-    });
+    setVisibleCount(5);
+    setShowMore(true);
   };
 
   const visibleCategories = categories.slice(0, visibleCount);
@@ -106,7 +103,28 @@ const LyricsSearch = () => {
           where("title", "<=", lowerCase + "\uf8ff")
         );
         const data = await getDocs(q);
-        setSongs(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); // Include document ID
+        const artistMap = new Map();
+        const songsData = await Promise.all(
+          data.docs.map(async (songDoc) => {
+            const songData = songDoc.data();
+            if (songData.artistId) {
+              if (!artistMap.has(songData.artistId)) {
+                const artistDocRef = doc(db, "artists", songData.artistId);
+                const artistDocSnap = await getDoc(artistDocRef);
+                if (artistDocSnap.exists()) {
+                  artistMap.set(songData.artistId, artistDocSnap.data().name);
+                } else {
+                  artistMap.set(songData.artistId, "Unknown Artist");
+                }
+              }
+              songData.artist = artistMap.get(songData.artistId);
+            } else {
+              songData.artist = "Unknown Artist";
+            }
+            return { ...songData, id: songDoc.id };
+          })
+        );
+        setSongs(songsData);
       } catch (error) {
         console.error("Error fetching songs: ", error);
       }
@@ -116,7 +134,11 @@ const LyricsSearch = () => {
     const getArtists = async () => {
       try {
         const artistsSnapshot = await getDocs(artistsCollectionRef);
-        setArtists(artistsSnapshot.docs.map((doc) => doc.data().name)); // Assuming 'name' field contains the artist's name
+        const artistsData = artistsSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().name,
+        }));
+        setArtists(artistsData);
       } catch (error) {
         console.error("Error fetching artists: ", error);
       }
@@ -162,7 +184,6 @@ const LyricsSearch = () => {
     }
   }, [trendingSongs]);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <div>
@@ -192,7 +213,7 @@ const LyricsSearch = () => {
           </div>
         ) : (
           songs.slice(0, displayCount).map((song) => (
-            <Link to={`/lyrics/${song.id}`} className="song-link" key={song.id}>
+            <Link to={`/songs/${song.id}`} className="song-link" key={song.id}>
               <div className="lyrics-row">
                 <h2 className="result-song-title">{capitalize(song.title)}</h2>
                 <p className="result-song-artist">
@@ -217,114 +238,25 @@ const LyricsSearch = () => {
         )}
       </div>
 
-      <div className="lyrics-search-page-suggestions-container">
-        <div className="songs-by-category-container-search-page">
-          <h2 className="songs-by-category-search-page">Songs by Category
-
-          <img src="/images/list.png" alt="Icon" className="heading-icon-search-page" />
-
-          </h2>
-          <ul>
-            {visibleCategories.map((e, index) => (
-              <div key={index} className="related-songs-container-search-page">
-                <li className="related-songs">
-                  <Link to={`/lyrics/category/${e.toLowerCase()}`}>
-                    {capitalize(e)}
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-          <div className="show-more-container-search">
-            {visibleCount < categories.length && showMore && (
-              <button
-                className="show-more-button-lyrics"
-                onClick={handleShowMoreCategory}
-              >
-                Show More
-              </button>
-            )}
-            {visibleCount > 5 && !showMore && (
-              <button
-                className="show-more-button-lyrics"
-                onClick={handleShowLessCategory}
-              >
-                Show Less
-              </button>
-            )}
-          </div>
-        </div>
-
-        <div className="songs-by-category-container-search-page">
-          <h2 className="songs-by-category-search-page">Songs by Artists
-
-          <img src="/images/mic.png" alt="Icon" className="heading-icon-search-page" />
-
-          </h2>
-          <ul>
-            {artists.map((artist, index) => (
-              <div key={index} className="related-songs-container-search-page">
-                <li className="related-songs">
-                  <Link to={`/lyrics/artist/${artist.toLowerCase()}`}>
-                    {capitalize(artist)}
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-          <div className="show-more-container-search">
-            {visibleCount < categories.length && showMore && (
-              <button
-                className="show-more-button-lyrics"
-                onClick={handleShowMoreCategory}
-              >
-                Show More
-              </button>
-            )}
-            {visibleCount > 5 && !showMore && (
-              <button
-                className="show-more-button-lyrics"
-                onClick={handleShowLessCategory}
-              >
-                Show Less
-              </button>
-            )}
-          </div>
-        </div>
-
-        <div className="songs-by-category-container-search-page">
-          <h2 className="songs-by-category-search-page">Trending Songs
-
-          <img src="/images/trend.png" alt="Icon" className="heading-icon-search-page" />
-
-          </h2>
-          <ul>
-            {trendingSongs.slice(0, displayCount).map((song, index) => (
-              <div key={index} className="related-songs-container-search-page">
-                <li className="related-songs">
-                  <Link to={`/lyrics/${song.id}`}>
-                    {capitalize(song.title)}
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-          <div className="show-more-container-search">
-            {trendingSongs.length > 4 && (
-              <button
-                className="show-more-button-lyrics"
-                onClick={handleShowMoreTrending}
-              >
-                {"Show More"}
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
+      <Suggestions 
+        categories={categories}
+        artists={artists}
+        trendingSongs={trendingSongs}
+        visibleCategories={visibleCategories}
+        showMore={showMore}
+        handleShowMoreCategory={handleShowMoreCategory}
+        handleShowLessCategory={handleShowLessCategory}
+        showMoreTrending={showMoreTrending}
+        handleShowMoreTrending={handleShowMoreTrending}
+      />
 
       <Footer />
     </div>
   );
+};
+
+const capitalize = (text) => {
+  return text.replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
 export default LyricsSearch;

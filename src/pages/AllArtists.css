@@ -1,0 +1,118 @@
+.all-artists-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.artists-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 30px;
+  padding: 20px;
+  padding-bottom: 200px;
+  width: 100%;
+}
+
+.artists-title {
+  font-size: 60px;
+  color: #2f2f2f;
+  font-family: 'Nohemi Regular';
+  margin-bottom: 30px;
+}
+
+.artists-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.artist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Hover effect for artist-item */
+.artist-item:hover {
+  transform: scale(1.08);
+}
+
+.artist-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for artist-image */
+.artist-item:hover .artist-image {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+.artist-name {
+  transform: scale(1.05);
+  font-size: 24px;
+  color: #2f2f2f;
+  font-family: 'Nohemi Light';
+  transition: transform 0.2s ease;
+  
+}
+
+
+
+
+.loading {
+  font-size: 30px;
+  font-family: 'Nohemi Regular';
+  color: #2f2f2f;
+  margin-top: 50px;
+}
+
+/* Mobile CSS */
+@media (max-width: 768px) {
+  .artists-content {
+    align-items: start;
+    margin: 15px;
+    padding: 10px;
+    padding-top: 100px;
+  }
+
+  .artists-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .artists-list {
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .artist-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .artist-name {
+    font-size: 20px;
+  }
+
+  .loading {
+    font-size: 25px;
+  }
+}

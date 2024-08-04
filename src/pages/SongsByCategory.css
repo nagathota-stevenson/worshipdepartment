@@ -16,7 +16,7 @@
 }
 
 .category-cards-container {
-    padding: 0px 20px;
+    padding: 0px 40px;
     display: flex;
     flex-wrap: wrap;
     align-items: start;
@@ -32,7 +32,7 @@
     display: block;
     width: 250px;
     height: 150px;
-    border: 1px solid #ddd;
+    border: 1px solid #ededed;
     border-radius: 20px;
     overflow: hidden;
     text-decoration: none;
@@ -104,7 +104,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding-bottom: 30px;
+    padding: 30px;
   }
   
   .filters input {
@@ -119,4 +119,192 @@
   .filters input:focus {
     border-color: #2f2f2f;
     outline: none;
+  }
+
+  @media (max-width: 767px) {
+
+    .songs-by-category-page {
+        position: relative;
+        flex-direction: column;
+        padding-top: 70px; /* Adjust this value based on your navbar height */
+    }
+
+    .category-title {
+        text-align: center;
+        font-size: 30px; /* Adjust font size for mobile */
+        padding: 20px;
+        font-family: 'Nohemi Regular';
+    }
+
+    .category-song-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 20px; /* Adjust font size for mobile */
+    }
+
+    .category-cards-container {
+        padding: 0px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        gap: 20px; /* Adjust gap for mobile */
+        background-color: transparent;
+        min-height: 45vh;
+        justify-content: start; /* Center the cards on mobile */
+    }
+
+    .category-song-card {
+        width: 100%; /* Make cards full-width on mobile */
+        max-width: 200px; /* Set a max-width for better appearance */
+        height: auto; /* Adjust height for better appearance */
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: #fff;
+        transition: transform 1s ease;
+    }
+
+    .category-song-card:hover {
+        transform: scale(1.05);
+        background-color: #f15f3b;
+        color: #fff;
+    }
+
+    .category-card-content {
+        padding: 20px;
+    }
+
+    .category-card-song-title {
+        font-size: 16px; /* Adjust font size for mobile */
+        font-family: 'Nohemi Regular';
+        height: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; /* Ensure the element has a width to trigger overflow */
+    }
+
+    .category-card-song-artist,
+    .category-card-song-views {
+        font-family: 'Nohemi Light';
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    .category-card-loading {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .show-more-container-category {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .show-more-button-category {
+        font-family: "Nohemi Regular";
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 18px;
+        color: #2f2f2f;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .show-more-button-category:hover {
+        background-color: #f15f3b;
+        color: white;
+    }
+
+    .filters {
+        font-family: "Nohemi Regular";
+        display: flex;
+        flex-direction: column; /* Stack filters vertically on mobile */
+        align-items: center; /* Center the filters */
+        gap: 10px; /* Adjust gap for mobile */
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    .filters input {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 50px;
+        width: 80%; /* Make input width responsive */
+        max-width: 300px; /* Set a max-width for better appearance */
+    }
+
+    .filters input:focus {
+        border-color: #2f2f2f;
+        outline: none;
+    }
+}
+
+
+
+.category-card-skeleton {
+    width: 250px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  .skeleton-title,
+  .skeleton-artist,
+  .skeleton-views {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skeleton-title {
+    height: 30px;
+    width: 60%;
+  }
+  
+  .skeleton-artist {
+    width: 70%;
+  }
+  
+  .skeleton-views {
+    width: 50%;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .skeleton-title::after,
+  .skeleton-artist::after,
+  .skeleton-views::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #f4f4f4 25%, #fafafa 50%, #e0e0e0 75%);
+    animation: shimmer 1.5s infinite;
   }

@@ -72,6 +72,7 @@
 }
 
 .related-songs-heading {
+  font-family: 'Nohemi Regular';
   padding-top: 0.5em;
   font-size: 40px;
 }
@@ -81,6 +82,7 @@
   font-family: 'Nohemi Regular';
   font-size: 20px;
   padding: 10px 0px;
+ 
   width: 90%;
   /* transition: color 0.5s ease-in-out; */
 }
@@ -100,6 +102,7 @@
 .loading-lyrics-display-page {
   font-family: 'Nohemi Regular';
   font-size: 70px;
+  align-items: center;
 
 }
 
@@ -307,6 +310,12 @@
   color: #f15f3b;
 }
 
+.song-artist-lyrics-display :hover {
+    
+  color: #f15f3b;
+  transition: color 0.2s ease;
+
+}
 
 .transpose-control {
   font-family: 'Nohemi Regular';
@@ -397,4 +406,400 @@
   100% {
     opacity: 0.2;
   }
+}
+
+
+/* Mobile-specific CSS */
+
+@media (max-width: 767px) {
+
+  .lyrics-display-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .lyrics-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 100px;
+    padding: 10px;
+  }
+
+  .views-likes-container {
+    font-size: 16px;
+    display: flex;
+    font-family: 'Nohemi Light';
+    gap: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+  }
+
+  .views-container,
+  .likes-container {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+  }
+
+  .views-likes-container img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lyrics-display-page .show-more-button-lyrics {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: #2f2f2f;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #2f2f2f;
+    cursor: pointer;
+  }
+
+  .lyrics {
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .lyrics-display-right-content {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .related-songs-heading {
+    padding-top: 0.5em;
+    font-size: 30px;
+    
+   
+  }
+
+  .related-songs {
+    border-bottom: 1.5px solid #c8c8c8;
+    font-family: 'Nohemi Regular';
+    font-size: 16px;
+    padding: 5px 0px;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .related-songs:hover {
+    color: #f15f3b;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .song-title-lyrics-display {
+    font-size: 36px;
+    color: #2f2f2f;
+    font-family: 'Nohemi Regular';
+  }
+
+  .loading-lyrics-display-page {
+    font-family: 'Nohemi Regular';
+    font-size: 50px;
+  }
+
+  .song-artist-lyrics-display {
+    font-size: 16px;
+    color: #2f2f2f;
+    margin-bottom: 10px;
+    font-family: 'Nohemi Light';
+    
+
+  }
+
+  .song-artist-lyrics-display :hover {
+    
+    color: #f15f3b;
+    transition: color 0.2s ease;
+  
+  }
+
+  .divider-lyrics-page {
+    height: 2px;
+    width: 90%;
+    background-color: #2f2f2f;
+    margin-top: 30px;
+    border: none;
+  }
+
+  .song-lyrics {
+    font-family: 'Nohemi Regular';
+    font-size: 30px;
+    line-height: 2.5;
+    letter-spacing: 1px;
+    color: #2f2f2f;
+  }
+
+  .song-chords {
+    font-family: 'Nohemi Regular';
+    font-size: 25px;
+    color: #f15f3b;
+    margin-bottom: -20px;
+  }
+
+  .youtube-video-lyrics-page {
+    flex-shrink: 0;
+    width: 100%;
+    margin-right: 20px;
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .youtube-video-lyrics-page iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+
+  .toggle-container {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+  }
+
+  .toggle-button {
+    font-family: 'Nohemi Regular';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 40px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .toggle-option {
+    width: 50%;
+    text-align: center;
+    font-size: 16px;
+    color: #2f2f2f;
+    z-index: 1;
+  }
+
+  .toggle-button::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #f15f3b;
+    transition: transform 0.4s ease;
+  }
+
+  .toggle-button.telugu::before {
+    transform: translateX(0%);
+  }
+
+  .toggle-button.english::before {
+    transform: translateX(100%);
+  }
+
+  .skeleton-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Anek Telugu', sans-serif;
+  }
+
+  .skeleton-title,
+  .skeleton-artist,
+  .skeleton-toggle,
+  .skeleton-lyrics,
+  .skeleton-video {
+    background: #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .skeleton-title {
+    width: 70%;
+    height: 30px;
+  }
+
+  .skeleton-artist {
+    width: 50%;
+    height: 15px;
+  }
+
+  .skeleton-toggle {
+    width: 200px;
+    height: 30px;
+  }
+
+  .skeleton-lyrics {
+    width: 100%;
+    height: 100px;
+  }
+
+  .skeleton-video {
+    width: 100%;
+    height: 200px;
+  }
+
+  .skeleton-loader::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ddd 25%, #f5f5f5 50%, #ddd 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  .font-size-control {
+    font-family: 'Nohemi Regular';
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    color: #2f2f2f;
+    padding: 5px;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .font-size-control span {
+    margin: 5px;
+    font-size: 16px;
+  }
+
+  .font-size-button {
+    font-size: 16px;
+    border: none;
+    border-radius: 200px;
+    color: #2f2f2f;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .font-size-button:hover {
+    border-radius: 200px;
+    color: #f15f3b;
+  }
+
+  .transpose-control {
+    font-family: 'Nohemi Regular';
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    color: #2f2f2f;
+    padding: 5px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .transpose-control span {
+    margin: 5px;
+    font-size: 16px;
+  }
+
+  .transpose-steps {
+    color: #a5a5a5;
+    position: relative;
+  }
+
+  .transpose-button {
+    font-size: 16px;
+    border: none;
+    color: #2f2f2f;
+    width: 30px;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .transpose-button:hover {
+    color: #f15f3b;
+  }
+
+  .song-artist-lyrics-display .tab-space::before {
+    content: "\00a0\00a0\00a0\00a0\00a0";
+  }
+
+  .controls-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .loading-lyrics-display-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  .logo-loading {
+    width: 70px;
+    height: 70px;
+    animation: pulse 2s infinite;
+  }
+}
+
+
+
+.comments-section {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment {
+  padding: 10px;
+  border: 1px solid #c8c8c8;
+  border-radius: 8px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-comment textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid #c8c8c8;
+  padding: 10px;
+  font-family: 'Nohemi Light';
+  font-size: 16px;
+}
+
+.add-comment button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f15f3b;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Nohemi Light';
+  font-size: 16px;
+}
+
+.add-comment button:hover {
+  background-color: #e14c29;
 }
